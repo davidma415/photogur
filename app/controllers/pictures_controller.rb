@@ -1,5 +1,6 @@
 class PicturesController < ApplicationController
   before_action :ensure_logged_in, except: [:show, :index]
+  before_action :load_picture, only: [:show, :edit, :update, :destroy]
   def index
     @pictures = Picture.all
     @older_than_30 = Picture.created_before("2018-07-07 00:00:00")
@@ -31,11 +32,11 @@ class PicturesController < ApplicationController
   end
 
   def edit
-    @picture = Picture.find(params[:id])
+    load_picture
   end
 
   def update
-    @picture = Picture.find(params[:id])
+    load_picture
 
     @picture.title = params[:picture][:title]
     @picture.artist = params[:picture][:artist]
@@ -49,9 +50,13 @@ class PicturesController < ApplicationController
   end
 
   def destroy
-    @picture = Picture.find(params[:id])
+    load_picture
     @picture.destroy
     redirect_to "/pictures"
+  end
+
+  def load_picture
+    @picture = Picture.find(params[:id])
   end
 
 end
