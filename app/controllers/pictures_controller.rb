@@ -1,5 +1,5 @@
 class PicturesController < ApplicationController
-
+  before_action :ensure_logged_in, except: [:show, :index]
   def index
     @pictures = Picture.all
     @older_than_30 = Picture.created_before("2018-07-07 00:00:00")
