@@ -7,6 +7,7 @@ class PicturesController < ApplicationController
     @older_than_30 = Picture.created_before("2018-07-07 00:00:00")
     @pics_in_2017 = Picture.created_in_year("2017")
     @pics_in_2018 = Picture.created_in_year("2018")
+    @latest = Picture.latest(10)
   end
 
   def show

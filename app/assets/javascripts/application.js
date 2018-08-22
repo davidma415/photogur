@@ -13,3 +13,11 @@
 //= require jquery
 //= require jquery_ujs
 //= require_tree .
+function dropNav() {
+    var x = document.getElementById("top-navbar");
+    if (x.className === "navbar") {
+        x.className += " responsive";
+    } else {
+        x.className = "navbar";
+    }
+}

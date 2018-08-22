@@ -1,24 +1,10 @@
-<h1>Pictures (<%= @pictures.length %>)</h1>
-<%= link_to("New Picture", new_picture_path) %>
-
-<% @pictures.each do |picture| %>
-  <%= render 'show_pic', picture: picture %>
-<% end %>
-
-<h1>Pictures older than a month</h1>
-<% @older_than_30.each do |picture| %>
-  <h3>Created on <%= picture.created_at %></h3>
-  <%= render 'show_pic', picture: picture %>
-<% end %>
-
-<h1>Pictures created in 2017</h1>
-<% @pics_in_2017.each do |picture| %>
-  <h3>Created on <%= picture.created_at %></h3>
-  <%= render 'show_pic', picture: picture %>
-<% end %>
-
-<h1>Pictures created in 2018</h1>
-<% @pics_in_2018.each do |picture| %>
-  <h3>Created on <%= picture.created_at %></h3>
-  <%= render 'show_pic', picture: picture %>
-<% end %>
+<hr>
+<div class="latest-pics-container">
+  <div class="index-grid">
+    <% @latest.each do |picture| %>
+      <div class="index-cell">
+        <%= render 'show_pic', picture: picture %>
+      </div>
+    <% end %>
+  </div>
+</div>

@@ -1,3 +1,45 @@
-// Place all the styles related to the pictures controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
+.image-link img {
+  max-width: 100%;
+}
+
+.latest-pics-container {
+  margin: 0 auto;
+  max-width: 1200px;
+  padding: 0 1rem;
+}
+
+.index-grid {
+  display: block;
+}
+
+.recent-title{
+  text-align: center;
+  font-family: 'M PLUS Rounded 1c', sans-serif;
+  color: #C8D3D5;
+  font-size: 0.85em;
+}
+
+hr {
+  border: 0;
+  height: 1px;
+  background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(51, 153, 137, 0.45), rgba(0, 0, 0, 0));
+}
+@media all and (min-width: 600px) {
+  .index-grid {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .index-cell {
+    width: 50%;
+  }
+
+  .recent-title {
+    font-size: 1.1em;
+    text-align: center;
+  }
+
+}

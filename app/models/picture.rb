@@ -12,4 +12,8 @@ class Picture < ApplicationRecord
   def self.created_in_year(year)
     Picture.where("created_at LIKE ?", "#{year}%")
   end
+
+  def self.latest(num)
+    Picture.order(created_at: :desc).limit(num)
+  end
 end
